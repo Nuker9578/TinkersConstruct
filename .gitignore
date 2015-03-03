@@ -38,3 +38,7 @@ version.properties
 options.txt
 /saves/
 /out
+*.jar
+/asm/
+usernamecache.json
+TinkersConstruct/.project

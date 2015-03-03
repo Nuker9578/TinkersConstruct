@@ -4,6 +4,7 @@ import cpw.mods.fml.common.event.*;
 import mantle.pulsar.pulse.*;
 import net.minecraftforge.fluids.Fluid;
 import tconstruct.TConstruct;
+import tconstruct.util.config.PHConstruct;
 
 import static tconstruct.smeltery.TinkerSmeltery.*;
 
@@ -37,7 +38,7 @@ public class TinkerMystcraft
         TConstruct.logger.info("Mystcraft detected. Blacklisting Mystcraft fluid symbols.");
         for(Fluid fluid : fluids)
         {
-            if(fluid == null)
+            if(PHConstruct.blacklistMyst == true || fluid == null)
                 continue;
             FMLInterModComms.sendMessage("Mystcraft", "blacklistfluid", fluid.getName());
         }

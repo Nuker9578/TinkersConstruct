@@ -17,9 +17,9 @@ public class PHConstruct
          * Make sure to read any old configs file if they exist
          * Second: Create the actual config file
          */
-        File mainFile = new File(location + "/TinkersConstruct.cfg");
-        File legacyFile16 = new File(location + "/TinkersWorkshop.txt");
-        File legacyFile17 = new File(location + "/TConstruct.cfg");
+        File mainFile = new File(location + "/TCon/TinkersConstruct.cfg");
+        File legacyFile16 = new File(location + "/TCon/TinkersWorkshop.txt");
+        File legacyFile17 = new File(location + "/TCon/TConstruct.cfg");
         try
         {
             if (!mainFile.exists())
@@ -36,9 +36,17 @@ public class PHConstruct
             TConstruct.logger.warn(e.getLocalizedMessage());
         }
 
+        
         Configuration config = new Configuration(mainFile);
         //config.load(); /* Load happens in the constructor */
-
+        
+        blacklistMyst = config.get("--ForkedConfigs--", "Blacklist fliuds in Mystcraft", true).getBoolean(true);
+        String bloodString = "blood";
+        String glueString = "glue";
+		bloodName = config.getString("bloodName", "--ForkedConfigs--", bloodString, "Blood fluid name as a string");
+		glueName = config.getString("glueName", "--ForkedConfigs--", glueString, "Glue fluid name as a string");
+		
+		
         superfunWorld = config.get("Superfun", "All the world is Superfun", false).getBoolean(false);
 
         keepHunger = config.get("Difficulty Changes", "Keep hunger on death", true).getBoolean(true);
@@ -206,8 +214,13 @@ public class PHConstruct
             gregtech = gtConfig.get("smelting", "tile.anvil.slightlyDamaged", false).getBoolean(false);
         }
     }
+    
+    //Custom Configs
+    public static boolean blacklistMyst;
+    public static String bloodName;
+    public static String glueName;
 
-    //Modules
+    // Modules
     public static boolean worldModule;
     public static boolean toolModule;
     public static boolean smelteryModule;

@@ -265,7 +265,7 @@ public class TinkerSmeltery
 
         // Special liquids with different properties/blocks than the rest
 
-        TinkerSmeltery.bloodFluid = new Fluid("blood").setDensity(3000).setViscosity(6000).setTemperature(1300);
+        TinkerSmeltery.bloodFluid = new Fluid(PHConstruct.bloodName).setDensity(3000).setViscosity(6000).setTemperature(1300);
         boolean isBloodPreReg = !FluidRegistry.registerFluid(TinkerSmeltery.bloodFluid);
         TinkerSmeltery.blood = new BloodBlock(TinkerSmeltery.bloodFluid, Material.water, "liquid_cow").setBlockName("liquid.blood");
         GameRegistry.registerBlock(TinkerSmeltery.blood, "liquid.blood");
@@ -286,7 +286,7 @@ public class TinkerSmeltery
 
 
         // Glue
-        TinkerSmeltery.glueFluid = new Fluid("glue").setDensity(6000).setViscosity(6000).setTemperature(200);
+        TinkerSmeltery.glueFluid = new Fluid(PHConstruct.glueName).setDensity(6000).setViscosity(6000).setTemperature(200);
         boolean isGluePreReg = !FluidRegistry.registerFluid(TinkerSmeltery.glueFluid);
         TinkerSmeltery.glueFluidBlock = new GlueFluid(TinkerSmeltery.glueFluid, Material.water).setCreativeTab(TConstructRegistry.blockTab).setStepSound(TinkerWorld.slimeStep).setBlockName("liquid.glue");
         GameRegistry.registerBlock(TinkerSmeltery.glueFluidBlock, "liquid.glue");
